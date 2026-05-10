@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>교회 경매 마스터 클래스</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Nanum+Myeongjo:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Noto Sans KR', 'sans-serif'],
+                        serif: ['Nanum Myeongjo', 'serif'],
+                    },
+                    colors: {
+                        primary: '#1a3668',
+                        secondary: '#c5a059',
+                        dark: '#111827',
+                        light: '#f8fafc',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* 커스텀 스타일 (주로 애니메이션 및 Tailwind로 처리하기 번거로운 미세 조정) */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #c5a059, #eab308);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-light antialiased">
+
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <i class="fa-solid fa-church text-primary text-2xl"></i>
+                    <span class="font-serif font-bold text-xl text-primary tracking-tight">경매마스터</span>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#why" class="text-gray-600 hover:text-primary font-medium transition">왜 상가경매인가?</a>
+                    <a href="#strategy" class="text-gray-600 hover:text-primary font-medium transition">핵심전략</a>
+                    <a href="#cases" class="text-gray-600 hover:text-primary font-medium transition">성공사례</a>
+                    <a href="#caution" class="text-gray-600 hover:text-primary font-medium transition">주의사항</a>
+                    <a href="#contact" class="bg-primary hover:bg-blue-900 text-white px-6 py-2.5 rounded-full font-medium transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">상담 신청</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-primary overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <img src="https://images.unsplash.com/photo-1438283173091-5dbf5c5a3206?auto=format&fit=crop&w=1920&q=80" alt="Background" class="w-full h-full object-cover">
+        </div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-7xl font-serif font-bold text-white mb-6 leading-tight">
+                교회 경매 <span class="text-secondary">마스터 클래스</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-10 max-w-3xl mx-auto font-light">
+                끝없는 월세의 부담을 넘어,<br class="md:hidden"> 자립하는 교회의 견고한 토대 마련하기
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="#contact" class="bg-secondary hover:bg-yellow-600 text-white text-lg font-bold py-4 px-10 rounded-full shadow-xl transition-all transform hover:scale-105">
+                    전문가 1:1 상담 신청하기
+                </a>
+                <p class="text-gray-400 mt-4 sm:mt-0 sm:ml-4 font-light">강연: 경매 전문가 이광진</p>
+            </div>
+        </div>
+        <!-- Decorative bottom shape -->
+        <div class="absolute bottom-0 w-full overflow-hidden leading-none">
+            <svg class="relative block w-full h-12 lg:h-24" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,119.3,200.7,112.5,242.49,108.59,282.79,88.4,321.39,56.44Z" class="fill-light"></path>
+            </svg>
+        </div>
+    </section>
+
+    <section id="why" class="py-20 lg:py-32 bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">왜 상가 경매여야 하는가?</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div class="order-2 lg:order-1 space-y-8">
+                    <p class="text-xl text-gray-600 leading-relaxed">
+                        많은 목사님들이 매달 지출되는 <strong class="text-primary font-bold">고정 임대료</strong> 때문에 사역의 집중력을 잃곤 합니다. 일반 매매가 아닌 경매를 통하면 시세 대비 <span class="bg-yellow-100 text-yellow-800 font-bold px-2 py-1 rounded">약 70~80% 가격</span>으로 소유권을 확보할 수 있습니다.
+                    </p>
+                    
+                    <div class="bg-white p-8 rounded-2xl shadow-lg border-l-4 border-green-500 transform transition hover:-translate-y-1">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="bg-green-100 p-3 rounded-full text-green-600">
+                                <i class="fa-solid fa-won-sign text-2xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-800">비용의 역전 현상</h3>
+                        </div>
+                        <p class="text-gray-600 text-lg">
+                            월세 300만 원 상가를 경매로 낙찰받을 경우, <br class="hidden md:block">
+                            <strong class="text-green-600 text-xl">대출 이자 약 150만 원</strong> 수준으로 해결이 가능해집니다.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="order-1 lg:order-2">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl aspect-w-4 aspect-h-3">
+                        <img src="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?auto=format&fit=crop&w=800&q=80" alt="회의실 모습" class="object-cover w-full h-full transform hover:scale-105 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 lg:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div>
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=80" alt="학교 전경" class="object-cover w-full h-full">
+                        <div class="absolute top-4 left-4 bg-primary text-white text-sm font-bold px-4 py-2 rounded-full shadow">
+                            입지 분석의 핵심
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">학교 정화구역을 보는 이유</h2>
+                        <div class="w-24 h-1 bg-secondary rounded-full mb-6"></div>
+                        <h3 class="text-2xl font-medium text-gray-800 mb-4">단순한 환경 확인이 아닙니다.</h3>
+                        <p class="text-lg text-gray-600">
+                            학교 주변 200m(정화구역) 내의 상가는 교회가 들어섬으로써 <strong class="text-primary">건물 전체의 가치를 바꿀 수 있는 절호의 기회</strong>입니다.
+                        </p>
+                    </div>
+                    
+                    <ul class="space-y-6">
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full bg-blue-50 text-blue-600 mt-1">
+                                <i class="fa-solid fa-broom"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-bold text-gray-800">유흥업소 정화</h4>
+                                <p class="text-gray-600 mt-1">교육환경법을 근거로 유해시설의 명도가 훨씬 용이합니다.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full bg-blue-50 text-blue-600 mt-1">
+                                <i class="fa-solid fa-building-circle-check"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-bold text-gray-800">클린 빌딩 전략</h4>
+                                <p class="text-gray-600 mt-1">교회가 입점하며 죽어있던 건물 전체의 이미지를 밝게 개선합니다.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full bg-blue-50 text-blue-600 mt-1">
+                                <i class="fa-solid fa-gem"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-xl font-bold text-gray-800">독점적 가치</h4>
+                                <p class="text-gray-600 mt-1">정화구역 내 '종교시설 입점 가능 상가'로서의 희소성을 확보합니다.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="strategy" class="py-20 lg:py-32 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">대출 성공을 위한 유형별 전략</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto rounded-full mb-6"></div>
+                <p class="text-lg text-gray-500">교회의 상황과 비전에 맞는 최적의 금융 조달 방법을 설계합니다.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 text-center group">
+                    <div class="w-20 h-20 mx-auto bg-blue-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary transition">
+                        <i class="fa-solid fa-building-columns text-3xl text-primary group-hover:text-white transition"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">일반 담보 대출</h3>
+                    <p class="text-gray-600 leading-relaxed">상가 자체의 감정 가치와 개인 신용을 기반으로 합니다. 한도가 보수적이나 가장 표준적이고 안전한 접근 방법입니다.</p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 text-center group">
+                    <div class="w-20 h-20 mx-auto bg-yellow-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-secondary transition">
+                        <i class="fa-solid fa-briefcase text-3xl text-secondary group-hover:text-white transition"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">시설 자금 대출</h3>
+                    <p class="text-gray-600 leading-relaxed">사업자의 명확한 운영 계획에 따른 대출입니다. 구체적인 용도에 따라 감정가 대비 <strong>최대 80%</strong>의 높은 한도 창출이 가능합니다.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 text-center group">
+                    <div class="w-20 h-20 mx-auto bg-indigo-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-indigo-600 transition">
+                        <i class="fa-solid fa-users-gear text-3xl text-indigo-600 group-hover:text-white transition"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">하이브리드 법인</h3>
+                    <p class="text-gray-600 leading-relaxed">비영리 법인 또는 선교 법인을 적극 활용하여 대출 주체를 다각화하고, 개인 신용의 한계를 극복하는 고도화된 전략입니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cases" class="py-20 lg:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">실전 대출 실행 사례 (Case Study)</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <!-- Case 1 -->
+                <div class="flex flex-col bg-slate-50 rounded-2xl overflow-hidden border border-slate-200">
+                    <div class="bg-primary px-8 py-6 flex items-center gap-4">
+                        <i class="fa-solid fa-mug-hot text-3xl text-secondary"></i>
+                        <h3 class="text-2xl font-bold text-white">수익형 카페 교회</h3>
+                    </div>
+                    <div class="p-8 flex-grow space-y-4">
+                        <div class="inline-block bg-blue-100 text-primary font-semibold px-4 py-1.5 rounded-full text-sm mb-2">
+                            '휴게음식점' 사업자 활용
+                        </div>
+                        <p class="text-lg text-gray-700">시설 자금 대출 실행 모델입니다.</p>
+                        <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm mt-4">
+                            <p class="text-gray-600 leading-relaxed">
+                                평일에는 상업적 카페로 수익을 창출하고, 주일에는 온전한 교회 공간으로 활용합니다. 금융권 입장에서 <strong>'수익성 있는 사업체'</strong>로 판단하기 때문에 대출 실행이 매우 용이해집니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 2 -->
+                <div class="flex flex-col bg-slate-50 rounded-2xl overflow-hidden border border-slate-200">
+                    <div class="bg-indigo-900 px-8 py-6 flex items-center gap-4">
+                        <i class="fa-solid fa-laptop-code text-3xl text-secondary"></i>
+                        <h3 class="text-2xl font-bold text-white">온라인 사역 센터</h3>
+                    </div>
+                    <div class="p-8 flex-grow space-y-4">
+                        <div class="inline-block bg-indigo-100 text-indigo-800 font-semibold px-4 py-1.5 rounded-full text-sm mb-2">
+                            '전자상거래' 사업자 활용
+                        </div>
+                        <p class="text-lg text-gray-700">업무용 대출 실행 모델입니다.</p>
+                        <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-sm mt-4">
+                            <p class="text-gray-600 leading-relaxed">
+                                기독교 서적 및 디지털 콘텐츠 판매 등 전자상거래 사업자로 등록합니다. 소규모 사무 공간 세팅을 통해 명확한 <strong>대출 명분</strong>을 확보하고 금리 혜택을 받습니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="caution" class="py-20 lg:py-32 bg-red-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-red-600 font-bold tracking-wider uppercase text-sm mb-2 block">Caution</span>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4">입찰 전 반드시 체크할 2가지</h2>
+                <div class="w-24 h-1 bg-red-500 mx-auto rounded-full"></div>
+                <p class="text-lg text-gray-600 mt-4">이 두 가지를 놓치면 낙찰을 받고도 큰 낭패를 볼 수 있습니다.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="bg-white rounded-2xl p-8 shadow-xl border-t-8 border-red-500 relative">
+                    <div class="absolute -top-6 left-8 bg-red-500 text-white w-12 h-12 flex items-center justify-center rounded-full text-xl shadow-lg">
+                        1
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mt-4 mb-4 flex items-center gap-3">
+                        <i class="fa-solid fa-file-invoice-dollar text-red-500"></i> 미납 관리비 분석
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        상가 경매에서 가장 무서운 숨은 적은 수천만 원에 달할 수 있는 미납 관리비입니다.
+                    </p>
+                    <div class="bg-red-50 p-4 rounded-lg border border-red-100 text-red-800 font-medium">
+                        입찰 전 관리사무소를 방문하여 <strong class="font-bold underline">공용 부분 미납금</strong>을 정확히 확인하고, 반드시 입찰가 산정에 차감 반영해야 합니다.
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-xl border-t-8 border-slate-800 relative">
+                    <div class="absolute -top-6 left-8 bg-slate-800 text-white w-12 h-12 flex items-center justify-center rounded-full text-xl shadow-lg">
+                        2
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mt-4 mb-4 flex items-center gap-3">
+                        <i class="fa-solid fa-file-contract text-slate-800"></i> 건물 관리규약 검토
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        건물 자치 관리규약에 <strong class="text-black font-bold">'종교시설 입점 금지'</strong> 조항이 존재하는지 확인이 필수입니다.
+                    </p>
+                    <div class="bg-slate-100 p-4 rounded-lg border border-slate-200 text-slate-800 font-medium">
+                        이를 놓칠 경우, 낙찰 및 잔금 납부 후에도 명도 소송이나 입점 불가 사태로 번질 수 있는 가장 치명적이고 위험한 요소입니다.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-dark pt-20 pb-10">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-5xl font-serif font-bold text-white mb-6">
+                사역의 지경을 넓히는 공간
+            </h2>
+            <p class="text-xl text-secondary font-medium mb-12">
+                "준비된 자에게 최고의 처소를 허락하십니다."
+            </p>
+            
+            <div class="bg-white/10 backdrop-blur-md rounded-2xl p-8 md:p-12 mb-16 border border-white/20">
+                <h3 class="text-2xl text-white font-bold mb-6">지금 바로 1:1 무료 상담을 신청하세요</h3>
+                <p class="text-gray-300 mb-8">교회의 상황에 맞는 맞춤형 입지 분석과 대출 전략을 제안해 드립니다.</p>
+                <form class="max-w-md mx-auto space-y-4" onsubmit="event.preventDefault(); alert('상담 신청이 접수되었습니다. (데모 페이지)');">
+                    <input type="text" placeholder="교회명 / 성함" class="w-full px-5 py-3 rounded-lg bg-white/90 border-0 focus:ring-2 focus:ring-secondary transition" required>
+                    <input type="tel" placeholder="연락처" class="w-full px-5 py-3 rounded-lg bg-white/90 border-0 focus:ring-2 focus:ring-secondary transition" required>
+                    <button type="submit" class="w-full bg-secondary hover:bg-yellow-600 text-white font-bold text-lg py-4 rounded-lg transition shadow-lg mt-4">
+                        상담 신청 완료하기
+                    </button>
+                </form>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="text-gray-400 text-sm">
+                    교회 경매 마스터 클래스 | 대표 상담사: 이광진<br>
+                    &copy; 2024 Church Auction Master. All rights reserved.
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-primary transition">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-green-500 transition">
+                        <i class="fa-solid fa-comment"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
