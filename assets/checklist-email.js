@@ -39,19 +39,21 @@
   }
   async function prepare(provider) {
     if (!form.reportValidity()) return;
-    const copied = await copyReport();
-    composeLink.href = composeUrl(provider);
-    composeLink.textContent = provider === 'gmail' ? 'Gmail 작성 화면 열기' : '메일 앱 작성 화면 열기';
-    if (provider === 'gmail') { composeLink.target = '_blank'; composeLink.rel = 'noopener noreferrer'; }
-    else { composeLink.removeAttribute('target'); composeLink.removeAttribute('rel'); }
+    const url = composeUrl(provider);
+    composeLink.href = url;
+    composeLink.textContent = provider === 'gmail' ? 'Gmail 작성 화면 다시 열기' : '메일 앱 작성 화면 다시 열기';
+    composeLink.removeAttribute('target');
+    composeLink.removeAttribute('rel');
     composeLink.hidden = false;
+    const copied = await copyReport();
     if (copied) {
       status.textContent = '전체 본문을 복사했습니다. 열린 메일의 본문에 붙여 넣은 뒤 전송을 눌러 주세요. 창이 열리지 않으면 아래 링크를 눌러 주세요.';
-      // Use a user-clicked link for Gmail to avoid asynchronous popup blocking.
-      if (provider !== 'gmail') composeLink.click();
-      else { status.textContent = '전체 본문을 복사했습니다. 아래 ‘Gmail 작성 화면 열기’를 누르고 본문에 붙여 넣은 뒤 전송을 눌러 주세요.'; composeLink.focus(); }
+      // Same-tab navigation works even when popups are blocked. Checklist fields
+      // are already saved locally, and remain available with the Back button.
+      if (provider === 'gmail') window.location.assign(url);
+      else composeLink.click();
     } else {
-      status.textContent = '자동 복사가 허용되지 않았습니다. 미리보기 내용을 직접 복사한 뒤 아래 링크에서 메일을 작성해 주세요.';
+      status.textContent = '자동 복사가 허용되지 않았습니다. 이 창의 미리보기 내용을 직접 복사해 메일 본문에 붙여 넣어 주세요. 창이 열리지 않으면 아래 링크를 눌러 주세요.';
       preview.focus(); preview.select();
     }
   }
